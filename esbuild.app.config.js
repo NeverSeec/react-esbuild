@@ -37,7 +37,7 @@ async function build() {
             const files = fs.readdirSync(join(__dirname, 'dist'));
             files.forEach(file => {
                 const stats = fs.statSync(join(__dirname, 'dist', file));
-                console.log(`📦 ${file}: ${(stats.size / 1024).toFixed(2)} KB`);
+                console.log(`${file}: ${(stats.size / 1024).toFixed(2)} KB`);
             });
         }
     } catch (error) {
