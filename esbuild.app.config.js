@@ -8,10 +8,12 @@ const __dirname = dirname(__filename);
 
 const isWatch = process.argv.includes('--watch');
 
+
+
 const baseConfig = {
     entryPoints: [join(__dirname, 'src/app/index.tsx')],
     bundle: true,
-    minify: true,
+    minify: !isWatch,
     sourcemap: true,
     target: 'es2020',
     platform: 'browser',
