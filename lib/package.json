@@ -1,0 +1,40 @@
+{
+  "name": "my-library",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./math": {
+      "import": "./dist/esm/math.js",
+      "require": "./dist/cjs/math.js",
+      "types": "./dist/types/math.d.ts"
+    },
+    "./string": {
+      "import": "./dist/esm/string.js",
+      "require": "./dist/cjs/string.js",
+      "types": "./dist/types/string.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "npm run build:types && npm run build:js",
+    "build:js": "node esbuild.lib.config.js",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist/types --project tsconfig.json",
+    "clean": "rm -rf dist"
+  },
+  "peerDependencies": {
+    "react": "19.1.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  },
+  "dependencies": {
+    "typescript": "5.9.3"
+  }
+}
